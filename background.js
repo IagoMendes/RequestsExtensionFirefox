@@ -3,19 +3,29 @@ async function logURL(requestDetails) {
   originUrl = originUrl.split('/')[2]
 
   let request = requestDetails.url
-  //let requestsP = document.getElementById("requestsId")
 
   if (!(request.includes(originUrl))){
     let requestObject = {"origin":originUrl,"request":request}
     console.log(requestObject)
+
     
-    // Get Arraw from storage
-    // var resquestsLists = await browser.storage.local.get();
+    var storeQuantityRequests = await browser.storage.local.get("quantityRequests");
+    if (storeQuantityRequests != null && storeQuantityRequests.quantityRequests){
+      var quantityRequests = storeQuantityRequests.quantityRequests
+    } else {
+      var quantityRequests = {}
+    }
+    
+    if(quantityRequests[originUrl]){
+      quantityRequests[originUrl] += 1
+    } else{
+      quantityRequests[originUrl] = 1
+    }
 
-    //console.log(resquestsLists)
 
-    //resquestsLists.push(requestObject);
-
+    console.log(quantityRequests)
+    
+    
     var storageObjects = await browser.storage.local.get("requestsLists");
 
     if(storageObjects != null && storageObjects.requestsLists){
@@ -31,13 +41,17 @@ async function logURL(requestDetails) {
 
 
 
-    while(requestsLists.length >= 50){
+    while(requestsLists.length > 50){
       requestsLists.shift()
     }
 
 
     await browser.storage.local.set({
       requestsLists
+    });
+
+    await browser.storage.local.set({
+      quantityRequests
     });
   }
   // console.log(request.includes(originUrl))

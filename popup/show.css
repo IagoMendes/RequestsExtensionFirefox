@@ -4,7 +4,7 @@ table {
 } 
 
 
-th, td {
+#requestText th, td {
     background-color: rgb(228, 228, 228);
     border-collapse: collapse;
     max-height: 50px;
@@ -16,9 +16,15 @@ body {
     
 }
 
-button {
+#requestsId {
     background-color: blue;
     color:white;
+    border-radius: 50px;
+}
+
+#clearCache {
+    background-color: rgb(206, 206, 206);
+    color:rgb(65, 65, 65);
     border-radius: 50px;
 }
 
