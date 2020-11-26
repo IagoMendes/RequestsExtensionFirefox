@@ -1,0 +1,29 @@
+{
+    "manifest_version": 2,
+    "name": "Extension",
+    "version": "1.0",
+  
+    "description": "Lists all conections to external servers.",
+  
+    "icons": {
+      "48": "button/alien.png"
+    },
+
+    "permissions": [
+        "webRequest",
+        "<all_urls>",
+        "storage"
+    ],
+
+    "browser_action": {
+        "default_icon": "button/alien.png",
+        "default_title": "Extension",
+        "default_popup": "popup/show.html"
+    },
+  
+    
+
+    "background": {
+        "scripts": ["background.js"]
+    }
+}

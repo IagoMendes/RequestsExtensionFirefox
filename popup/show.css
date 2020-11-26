@@ -1,0 +1,24 @@
+table {
+    width: 50px;
+    text-align: left;
+} 
+
+
+th, td {
+    background-color: rgb(228, 228, 228);
+    border-collapse: collapse;
+    max-height: 50px;
+}
+
+body {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    word-wrap: break-word;
+    
+}
+
+button {
+    background-color: blue;
+    color:white;
+    border-radius: 50px;
+}
+
